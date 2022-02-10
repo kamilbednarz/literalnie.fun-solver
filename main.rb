@@ -2,7 +2,7 @@ require_relative 'literalnie/heuristic_builder'
 require_relative 'literalnie/lookup'
 
 words = File.open('./words/pl_pl.txt').read.split("\n")
-word_to_guess = words.sample
+word_to_guess = ARGV[0] || words.sample
 
 Literalnie::Lookup.new(words, word_to_guess).solve(verbose: true)
 
